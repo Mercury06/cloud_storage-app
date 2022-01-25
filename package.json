@@ -16,5 +16,14 @@
   "bugs": {
     "url": "https://github.com/Mercury06/cloud_storage_app/issues"
   },
-  "homepage": "https://github.com/Mercury06/cloud_storage_app#readme"
+  "homepage": "https://github.com/Mercury06/cloud_storage_app#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "express": "^4.17.2",
+    "express-validator": "^6.14.0",
+    "mongoose": "^6.1.7"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
 }
