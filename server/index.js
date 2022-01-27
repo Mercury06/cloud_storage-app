@@ -1,39 +1,34 @@
-const express = require ("express")
-//const res = require("express/lib/response")
+const express = require ("express");
+const res = require("express/lib/response")
 const mongoose = require ("mongoose")
 //var config = require('config');
-const authRouter = require ("./routes/auth.routes")
+const router = require ("./routes/auth.routes.js")
+
+const { db } = require ("./models/User.js");
 
 const app = express()
-//const PORT = config.get('serverPort')
-const PORT = 5000;
-//console.log("This data from config:", serverPort)
-console.log("This data from config:", PORT)
-
-//app.use("/api/auth", authRouter)
+PORT = 3000;
+app.use(express.json())
+app.use("/api/auth", router)
 
 const start = async () => {
     try {
-        //await mongoose.connect(config.get("dbUrl"))
-        //await mongoose.connect(config.get("mongodb+srv://agregator:cloud_password93@cloud-disk.uvdnf.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"))
 
-        app.listen (PORT, () => {
-            console.log('Server started on port ', PORT)
-        })
+    await mongoose.connect("mongodb+srv://agregator:cloud_password93@cloud-disk.uvdnf.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
+       
+    app.get ("/", (req, res) => {
+        res.send('Some text');
+    })
+
+    app.listen(PORT, () => {
+        console.log ('Server started on port:', PORT)
+    })
     } catch (e) {
-        console.log(e)
-        //res.send({message: "Server error"})
+        console.log("catched from app", e)
     }
 }
 
-start()
-// app.get("/", (req, res) => {  
-//     // res.write("Hello")
-//     // res.end()
-//     res.send("shows only First Line")
-//     res.send("won't show second Line")
-// }
+start ()
 
-// )
-
-// app.listen(PORT, () => {console.log('Server started on port ', PORT)})
+// netstat -ano | findstr :5000
+// taskkill /PID 8616 /F
