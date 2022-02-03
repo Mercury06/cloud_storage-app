@@ -2,8 +2,10 @@ const express = require ("express");
 const res = require("express/lib/response")
 const mongoose = require ("mongoose")
 const config = require('./server/config/default');
+
 const router = require ("./server/routes/auth.routes.js")
 const corsMiddleware = require('./server/middleware/cors.middleware')
+const logger = require ('./server/middleware/logger.js');
 
 const { db } = require ("./server/models/User.js");
 
@@ -13,6 +15,7 @@ const dbUrl = config.dbUrl;
 //PORT = 3000;
 app.use(corsMiddleware)
 app.use(express.json())
+app.use(logger)
 app.use("/api/auth", router)
 
 const start = async () => {
