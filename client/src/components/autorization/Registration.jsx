@@ -5,22 +5,25 @@ import { registration } from "../../actions/users";
 
 
 const Registration = () => {
-
-    const[email, setEmail] = useState("")
-    const[password, setPassword] = useState("")
-    console.log(email, password)
+   
+    const[form, setForm] = useState({ email: "", password: "" })        
+   
+    const changeHandler = event => {
+        setForm({ ...form, [event.target.name]: event.target.value })
+    }
+       
 
     return (
         // <div className='registration'>
         <div>
             {/* <div className='registration_header'>Регистрация</div> */}
-            <div>Регистрация</div>
+            <h1>Регистрация</h1>
             {/* <Input value={email} setValue={setEmail} type="text" placeholder="Введите email" /> */}
-            <input setValue={setEmail} type="email" placeholder="Введите email" />
+                <input onChange={changeHandler} type="text" name="email" placeholder="Введите email" />
             {/* <Input value={password} setValue={setPassword} type="password" placeholder="Введите пароль" />   */}
-            <input setValue={setPassword} type="password" placeholder="Введите пароль" />         
+                <input  onChange={changeHandler} type="password" name="password" placeholder="Введите пароль" />         
             {/* <button className="registration_btn">Войти</button> */}
-            <button onClick={() => registration(email,password)}>Войти</button>
+                <button onClick={() => registration({...form})}>Войти</button>
         </div>
     );
 };
