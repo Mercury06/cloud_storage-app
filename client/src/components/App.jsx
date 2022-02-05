@@ -1,12 +1,13 @@
 import React, { useEffect} from "react";
 import Navbar from "./navbar/navbar";
 //import s from '../components/app.scss'
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, Navigate } from "react-router-dom";
 import Registration from "./autorization/Registration"
 import Login from "./autorization/Login"
 import { useSelector, useDispatch } from "react-redux";
 import { auth } from "./../actions/users"
 import { useStore } from 'react-redux'
+import Disk from "./disk/Disk";
 
 function App() {
 
@@ -16,10 +17,8 @@ function App() {
   console.log(store.getState())
   
   useEffect(() => {
-    dispatch(auth())
-    
+    dispatch(auth())    
   })
-
 
   return (
     
@@ -28,12 +27,16 @@ function App() {
           
         {/* <div className="wrap"> */}
         <div>
-          { !isAuth && 
+          { !isAuth ? 
           <Routes>
             <Route path="/registration" element={<Registration />} />
-            <Route path="/login" element={<Login />} />
-          </Routes> }
-
+            <Route path="/login" element={<Login />} />           
+          </Routes> 
+          :
+          <Routes>
+            <Route path="/disk" element={<Disk />} />
+            <Route path="/login" element={<Navigate to="/disk" replace />} />              
+          </Routes> }  
         </div>
 
     </>
