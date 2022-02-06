@@ -1,4 +1,5 @@
 import React from "react";
+import './../fileList.css'
 import { useSelector } from "react-redux";
 import File from "./File";
 
