@@ -5,7 +5,7 @@ import File from "./File";
 
 const FileList = () => {
 
-    const files = useSelector( state => state.files.files).map(file => <File file={file} key={file.id}/>)
+    const files = useSelector( state => state.files.files).map(file => <File file={file} key={file._id}/>)
     // const files = [{_id:1, name: 'direc', type: 'dir', size: '5Gb', date: "15.07.2019"},
     //                {_id:2, name: 'direc2', type: 'file', size: '5Gb', date: "15.07.2019"}].map(file => <File file={file} key={file.id} />)
 
