@@ -33,33 +33,35 @@ export function createDir(dirId, name) {
     }
 }
 
-// export function uploadFile(file, dirId) {
-//     return async dispatch => {
-//         try {
-//             const formData = new FormData()
-//             formData.append('file', file)
-//             if (dirId) {
-//                 formData.append('parent', dirId)
-//             }
-//             const uploadFile = {name: file.name, progress: 0, id: Date.now()}
-//             dispatch(showUploader())
-//             dispatch(addUploadFile(uploadFile))
-//             const response = await axios.post(`${API_URL}api/files/upload`, formData, {
-//                 headers: {Authorization: `Bearer ${localStorage.getItem('token')}`},
-//                 onUploadProgress: progressEvent => {
-//                     const totalLength = progressEvent.lengthComputable ? progressEvent.total : progressEvent.target.getResponseHeader('content-length') || progressEvent.target.getResponseHeader('x-decompressed-content-length');
-//                     if (totalLength) {
-//                         uploadFile.progress = Math.round((progressEvent.loaded * 100) / totalLength)
-//                         dispatch(changeUploadFile(uploadFile))
-//                     }
-//                 }
-//             });
-//             dispatch(addFile(response.data))
-//         } catch (e) {
-//             alert(e?.response?.data?.message)
-//         }
-//     }
-// }
+export function uploadFile(file, dirId) {
+    return async dispatch => {
+        try {
+            const formData = new FormData()
+            formData.append('file', file)
+            if (dirId) {
+                formData.append('parent', dirId)
+            }
+            // const uploadFile = {name: file.name, progress: 0, id: Date.now()}
+            // dispatch(showUploader())
+            // dispatch(addUploadFile(uploadFile))
+            const response = await axios.post(`http://localhost:8000/api/files/upload`, formData, {
+                headers: {Authorization: `Bearer ${localStorage.getItem('token')}`},
+                onUploadProgress: progressEvent => {
+                    const totalLength = progressEvent.lengthComputable ? progressEvent.total : progressEvent.target.getResponseHeader('content-length') || progressEvent.target.getResponseHeader('x-decompressed-content-length');
+                    if (totalLength) {
+                        let progress = Math.round((progressEvent.loaded*100) / totalLength)
+                        console.log(progress)
+                        // uploadFile.progress = Math.round((progressEvent.loaded * 100) / totalLength)
+                        // dispatch(changeUploadFile(uploadFile))
+                    }
+                }
+            });
+            dispatch(addFile(response.data))
+        } catch (e) {
+            alert(e?.response?.data?.message)
+        }
+    }
+}
 
 
 // export async function downloadFile(file) {
