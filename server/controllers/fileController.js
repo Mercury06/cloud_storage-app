@@ -133,7 +133,7 @@ class FileController {
             console.log(e)
             return res.status(400).json({message: 'Dir is not empty'})
         }
-    }
+    }       
 }
 
 module.exports = new FileController()

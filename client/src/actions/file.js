@@ -2,14 +2,23 @@ import axios from 'axios';
 import { setFiles, addFile, deleteFileAction } from '../reducers/fileReducer';
 import {addUploadFile, changeUploadFile, showUploader} from "../reducers/uploadReducer";
 
-export function getFiles(dirId) {
+export function getFiles(dirId, sort) {
     return async dispatch => {
-        try {
-            const response = await axios.get( `http://localhost:8000/api/files${dirId ? '?parent='+dirId : ''}`, {
+        try {      
+            let url = `http://localhost:8000/api/files`
+            if (dirId) {
+                url = `http://localhost:8000/api/files?parent=${dirId}`
+            }
+            if (sort) {
+                url = `http://localhost:8000/api/files?sort=${sort}`
+            }
+            if (dirId && sort) {
+                url = `http://localhost:8000/api/files?parent=${dirId}&sort=${sort}`
+            }
+            const response = await axios.get(url, {
                 headers: {Authorization: `Bearer ${localStorage.getItem('token')}`}
             });
             dispatch(setFiles(response.data))
-            console.log(response.data)
         } catch (e) {
             alert(e.response.data.message)
         }
