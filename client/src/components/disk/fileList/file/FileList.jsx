@@ -10,6 +10,12 @@ const FileList = () => {
     // const files = [{_id:1, name: 'direc', type: 'dir', size: '5Gb', date: "15.07.2019"},
     //                {_id:2, name: 'direc2', type: 'file', size: '5Gb', date: "15.07.2019"}].map(file => <File file={file} key={file.id} />)
 
+    if (files.length === 0) {
+        return (
+            <div className="loader"> <h3>folder is empty</h3></div>
+        )
+    }
+
     return (
         <div className="filelist">
             <div className="filelist__header">

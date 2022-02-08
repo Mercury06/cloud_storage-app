@@ -13,6 +13,7 @@ const Disk = () => {
 
     const dispatch = useDispatch()
     const currentDir = useSelector(state => state.files.currentDir)
+    const loader = useSelector(state => state.app.loader)
     const dirStack = useSelector(state => state.files.dirStack)
     const [dragEnter, setDragEnter] = useState(false)
     const [sort, setSort] = useState('type')
@@ -55,13 +56,13 @@ const Disk = () => {
         setDragEnter(false)
     }
 
-    // if(loader) {
-    //     return (
-    //         <div className="loader">
-    //             <div className="lds-dual-ring"></div>
-    //         </div>
-    //     )
-    // }
+    if(loader) {
+        return (
+            <div className="loader">
+                <div className="lds-dual-ring"></div>
+            </div>
+        )
+    }
 
     return ( !dragEnter ?
         <div className="disk" onDragEnter={dragEnterHandler} onDragLeave={dragLeaveHandler} onDragOver={dragEnterHandler}>
