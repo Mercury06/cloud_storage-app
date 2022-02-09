@@ -39,9 +39,9 @@ const File = ({file}) => {
             <div className='file_size'>{sizeFormat(file.size)}</div>
             {/* { file.type !== 'dir' && <button onClick={(e) => downloadClickHandler(e)} className='file_btn file_download'>download</button>} */}
             {/* { file.type !== 'dir' && <div  title="Download file" onClick={(e) => downloadClickHandler(e)}><DownloadIcon /></div>} */}
-            { file.type !== 'dir' && <div title="Download file" onClick={(e) => downloadClickHandler(e)}><DownloadIcon /></div>}
+            { file.type !== 'dir' && <div title="Download file" className='file_btn file_download' onClick={(e) => downloadClickHandler(e)}><DownloadIcon /></div>}
             {/* <button onClick={(e) => deleteClickHandler(e)} className='file_btn file_delete'>delete</button> */}
-            <div  title="Remove file" onClick={(e) => deleteClickHandler(e)}><RemoveIcon /></div>
+            <div  title="Remove file" className='file__btn file__delete' onClick={(e) => deleteClickHandler(e)}><RemoveIcon /></div>
         </div>
     );
 };
