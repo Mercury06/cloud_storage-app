@@ -7,6 +7,7 @@ import { setCurrentDir, setPopupDisplay } from '../../reducers/fileReducer';
 import FileList from './fileList/file/FileList';
 import Popup from './Popup';
 import Uploader from './uploader/Uploader';
+import { UploadIcon } from '../Icons/Boxicons';
 
 
 const Disk = () => {
@@ -66,23 +67,24 @@ const Disk = () => {
 
     return ( !dragEnter ?
         <div className="disk" onDragEnter={dragEnterHandler} onDragLeave={dragLeaveHandler} onDragOver={dragEnterHandler}>
-        
-            <div>DISC</div>
+                   
             <div className="disk__btns">
-                    <button className="disk__back" onClick={() => backClickHandler()}> Назад</button>
-                    <button className="disk__create" onClick={() => showPopupHandler()}> Создать папку</button>
+                    <button className="disk__back" onClick={() => backClickHandler()}> Back</button>
+                    <button className="disk__create" onClick={() => showPopupHandler()}> Create folder </button>
                     <div className="disk__upload">
-                        <label htmlFor="disk__upload-input" className="disk__upload-label">Загрузить файл</label>
+                        <label htmlFor="disk__upload-input" className="disk__upload-label">Upload file <UploadIcon /></label>
                         <input multiple={true} onChange={(event)=> fileUploadHandler(event)} type="file" id="disk__upload-input" className="disk__upload-input"/>
                     </div>
-            </div>
-            <select value={sort}
-                            onChange={(e) => setSort(e.target.value)}
-                            className='disk__select'>
-                        <option value="name">По имени</option>
-                        <option value="type">По типу</option>
-                        <option value="date">По дате</option>
+                <div className='disk__select'>
+                Sort files by: &nbsp;          
+                <select value={sort} onChange={(e) => setSort(e.target.value)}>                          
+                            
+                        <option value="name">name</option>
+                        <option value="type">type</option>
+                        <option value="date">date</option>
                     </select>
+                </div>
+            </div>
             <FileList/>
             <Popup />
             <Uploader />

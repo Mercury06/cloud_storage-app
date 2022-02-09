@@ -38,4 +38,4 @@ class FileService {
 }
 
 
-module.exports = new FileService() //экспорт объекта созданного класса
+module.exports = new FileService() 

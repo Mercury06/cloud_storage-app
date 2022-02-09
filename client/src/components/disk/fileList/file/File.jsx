@@ -1,11 +1,12 @@
 import React from 'react';
 import './file.css'
-import dirLogo from '../../../../assets/img/dir.svg';
-import fileLogo from '../../../../assets/img/file.svg';
+import dirLogo from '../../../Icons/folder.svg';
+import fileLogo from '../../../Icons/files.svg';
 import { useDispatch, useSelector } from 'react-redux';
 import { pushToStack, setCurrentDir } from '../../../../reducers/fileReducer';
 import { deleteFile, downloadFile } from '../../../../actions/file';
 import sizeFormat from "../../../../utils/sizeFormat";
+import { RemoveIcon, DownloadIcon } from '../../../Icons/Boxicons';
 
 const File = ({file}) => {
 
@@ -36,9 +37,11 @@ const File = ({file}) => {
             <div className='file_name'>{file.name}</div>
             <div className='file_date'>{file.date.slice(0,10)}</div>
             <div className='file_size'>{sizeFormat(file.size)}</div>
-            { file.type !== 'dir' && <button onClick={(e) => downloadClickHandler(e)} className='file_btn file_download'>download</button>}
-            <button onClick={(e) => deleteClickHandler(e)} className='file_btn file_delete'>delete</button>
-            
+            {/* { file.type !== 'dir' && <button onClick={(e) => downloadClickHandler(e)} className='file_btn file_download'>download</button>} */}
+            {/* { file.type !== 'dir' && <div  title="Download file" onClick={(e) => downloadClickHandler(e)}><DownloadIcon /></div>} */}
+            { file.type !== 'dir' && <div title="Download file" onClick={(e) => downloadClickHandler(e)}><DownloadIcon /></div>}
+            {/* <button onClick={(e) => deleteClickHandler(e)} className='file_btn file_delete'>delete</button> */}
+            <div  title="Remove file" onClick={(e) => deleteClickHandler(e)}><RemoveIcon /></div>
         </div>
     );
 };

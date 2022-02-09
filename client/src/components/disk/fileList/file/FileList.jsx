@@ -17,11 +17,11 @@ const FileList = () => {
     }
 
     return (
-        <div className="filelist">
+        <div className='filelist'>
             <div className="filelist__header">
-                <div className="filelist__name"> Название </div>
-                <div className="filelist__date"> Дата </div>
-                <div className="filelist__size"> Размер </div>
+                <div className="filelist__name"><b>Name</b></div>
+                <div className="filelist__date"><b>Date</b></div>
+                <div className="filelist__size"><b>Size</b></div>
             </div>
             <TransitionGroup>
             {files.map(file => 

@@ -1,41 +1,43 @@
 .disk {
-  margin-top: 20px;
+  margin-top: 40px;
 }
 .disk__btns {
   display: flex;
+  margin-left: 56px;
+}
+.disk__back {
+  margin-right: 16px;
+  border-radius: 2px;
+  background: rgb(0, 172, 29); 
+  color: white; /* Белые буквы */ 
+  font-size: 9pt;
+  border: 0px solid black;
 }
 .disk__create {
   margin-left: 10px;
+  margin-right: 16px;
+  border-radius: 2px;
+  background: rgb(0, 172, 29); 
+  color: white; /* Белые буквы */ 
+  font-size: 9pt;
+  border: 0px solid black;
 }
 .disk__upload-input {
   display: none;
 }
 .disk__upload-label {
-  border: 2px dashed #566885;
+  border: 1px solid #cccfd3;
   padding: 5px 10px;
   cursor: pointer;
   margin-left: 10px;
+  margin-top: 4px;
 }
 .disk__select {
   margin-left: auto;
+  margin-right: 190px;
 }
 .disk__list,
-.disk__plate {
-  height: 20px;
-  width: 20px;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  background: no-repeat center center;
-  background-size: contain;
-  margin: 0 10px;
-}
-.disk__list {
-  background-image: url("../../assets/img/list.svg");
-}
-.disk__plate {
-  background-image: url("../../assets/img/plate.svg");
-}
+
 .drop-area {
   width: 100%;
   height: calc(100vh - 50px - 40px);
@@ -59,6 +61,11 @@
   justify-content: center;
   align-items: center;
 }
+.popup__close {
+    background: rgb(247, 103, 103); /* Синий цвет фона */ 
+    color: white; /* Белые буквы */ 
+    font-size: 9pt;
+}
 .popup__content {
   width: 400px;
   background: white;
@@ -69,6 +76,7 @@
 }
 .popup__create {
   align-self: flex-end;
+  cursor: pointer;
 }
 .popup__header {
   display: flex;
@@ -96,7 +104,7 @@
   margin: 8px;
   border-radius: 50%;
   border: 6px solid #566885;
-  border-color: #233757 transparent #233757 transparent;
+  border-color: #566885 transparent #566885 transparent;
   animation: lds-dual-ring 1.2s linear infinite;
 }
 @keyframes lds-dual-ring {

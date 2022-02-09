@@ -19,13 +19,16 @@ export const registration = async ({...form}) => {
 }
 
 export const login = ({...form}) => {
-    
+    //debugger;
     return async dispatch => {
   
         try {        
             const response = await axios.post("http://localhost:8000/api/auth/login", { ...form})
             console.log(response.data)
+            //console.log(response.data.user)
+            //debugger;
             dispatch(setUser(response.data.user))
+            console.log(response.data.user.email)
             localStorage.setItem('token', response.data.token)
         } catch (e) {
             alert(e.response.data.message)

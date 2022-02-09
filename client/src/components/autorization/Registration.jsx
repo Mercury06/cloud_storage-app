@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { registration } from "../../actions/users";
 //import Input from "/code/use/cloud_storage_app/client/src/utils/input/Input";
-//import "./registration.css";
+import "./authorization.css";
 
 
 const Registration = () => {
@@ -18,11 +18,9 @@ const Registration = () => {
         <div>
             {/* <div className='registration_header'>Регистрация</div> */}
             <h1>Регистрация</h1>
-            {/* <Input value={email} setValue={setEmail} type="text" placeholder="Введите email" /> */}
-                <input onChange={changeHandler} type="text" name="email" placeholder="Введите email" />
-            {/* <Input value={password} setValue={setPassword} type="password" placeholder="Введите пароль" />   */}
-                <input  onChange={changeHandler} type="password" name="password" placeholder="Введите пароль" />         
-            {/* <button className="registration_btn">Войти</button> */}
+            
+                <input onChange={changeHandler} type="text" name="email" placeholder="Введите email" />           
+                <input  onChange={changeHandler} type="password" name="password" placeholder="Введите пароль" /> 
                 <button onClick={() => registration({...form})}>Войти</button>
         </div>
     );
