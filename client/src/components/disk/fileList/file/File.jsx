@@ -36,11 +36,8 @@ const File = ({file}) => {
             <img src={file.type === 'dir' ? dirLogo : fileLogo} alt='' className='file_img' />
             <div className='file_name'>{file.name}</div>
             <div className='file_date'>{file.date.slice(0,10)}</div>
-            <div className='file_size'>{sizeFormat(file.size)}</div>
-            {/* { file.type !== 'dir' && <button onClick={(e) => downloadClickHandler(e)} className='file_btn file_download'>download</button>} */}
-            {/* { file.type !== 'dir' && <div  title="Download file" onClick={(e) => downloadClickHandler(e)}><DownloadIcon /></div>} */}
+            <div className='file_size'>&nbsp;&nbsp;{sizeFormat(file.size)}</div>
             { file.type !== 'dir' && <div title="Download file" className='file_btn file_download' onClick={(e) => downloadClickHandler(e)}><DownloadIcon /></div>}
-            {/* <button onClick={(e) => deleteClickHandler(e)} className='file_btn file_delete'>delete</button> */}
             <div  title="Remove file" className='file__btn file__delete' onClick={(e) => deleteClickHandler(e)}><RemoveIcon /></div>
         </div>
     );

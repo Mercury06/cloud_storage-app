@@ -1,6 +1,7 @@
 import React, { useState} from "react";
 import { useDispatch } from "react-redux";
 import { login } from "./../../actions/users";
+import {NavLink} from "react-router-dom";
 import "./authorization.css";
 
 
@@ -15,16 +16,16 @@ const Login = () => {
     const dispatch = useDispatch();   
 
     return (
-        <div className='registration'>
+        <div className='authorization'>
         
-            <div className='authorization__header'><h1>Авторизация</h1></div>
-            
+            <div className='authorization__header'><h4>Login</h4></div>            
            
-                <input onChange={changeHandler} type="text" name="email" placeholder="Введите email" /><br></br>
+                <input onChange={changeHandler} type="text" name="email" placeholder="Username" autoFocus="autofocus"/><br></br>
          
-                <input  onChange={changeHandler} type="password" name="password" placeholder="Введите пароль" />         
+                <input  onChange={changeHandler} type="password" name="password" placeholder="Password" />  <br></br>       
           
-                <button onClick={() => dispatch(login({...form}))}>Войти</button>
+                <button className="authorization__btn" onClick={() => dispatch(login({...form}))}>Sign in</button>
+                <div><NavLink to="/registration">Don`t have an account? Register</NavLink></div>
         </div>
     );
 };

@@ -48,11 +48,11 @@ const Navbar = () => {
                                placeholder='search...'
                                value={searchName}
                                onChange={e => searchChangeHandler(e)} />} 
-                    { !isAuth && <div className="navbar_login"><NavLink to="/login">Войти</NavLink></div>}                
-                    { !isAuth && <div className="navbar_registration"><NavLink to="/registration">Регистрация</NavLink></div>}
+                    { !isAuth && <div className="navbar__login"><NavLink to="/login">Login</NavLink></div>}                
+                    { !isAuth && <div className="navbar__registration"><NavLink to="/registration">Registration</NavLink></div>}
 
                     
-                    { isAuth && <> <div className="navbar__login" onClick={() => dispatch(logout()) }><NavLink to="/login"><b>{login}</b></NavLink></div></>}
+                    { isAuth && <> <div className="navbar__login" title='logout' onClick={() => dispatch(logout()) }><NavLink to="/login"><b>{login}</b></NavLink></div></>}
                      
             </div>
         </div>

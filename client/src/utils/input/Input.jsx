@@ -13,4 +13,3 @@ const Input = ({ value, type, placeholder}) => {
 
 export default Input;
 
-//onChange={(event) => props.setValue(event.target.value)} 

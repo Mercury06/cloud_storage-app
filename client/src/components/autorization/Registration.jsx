@@ -14,14 +14,12 @@ const Registration = () => {
        
 
     return (
-        // <div className='registration'>
-        <div>
-            {/* <div className='registration_header'>Регистрация</div> */}
-            <h1>Регистрация</h1>
+        <div className='authorization'>        
+            <div className="authorization__header"><h4>Registration</h4></div>            
             
-                <input onChange={changeHandler} type="text" name="email" placeholder="Введите email" />           
-                <input  onChange={changeHandler} type="password" name="password" placeholder="Введите пароль" /> 
-                <button onClick={() => registration({...form})}>Войти</button>
+                <input onChange={changeHandler} autofocus type="text" name="email" placeholder="Enter your email" autoFocus="autofocus" /><br></br>           
+                <input  onChange={changeHandler} type="password" name="password" placeholder="Password" /> <br></br>
+                <button className="authorization__btn" onClick={() => registration({...form})}>Submit</button>
         </div>
     );
 };
