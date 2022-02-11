@@ -24,11 +24,9 @@ export const login = ({...form}) => {
   
         try {        
             const response = await axios.post("http://localhost:8000/api/auth/login", { ...form})
-            console.log(response.data)
-            //console.log(response.data.user)
-            //debugger;
+            console.log(response.data)            
             dispatch(setUser(response.data.user))
-            console.log(response.data.user.email)
+            //console.log(response.data.user.email)
             localStorage.setItem('token', response.data.token)
         } catch (e) {
             alert(e.response.data.message)
@@ -45,7 +43,6 @@ export const auth =  () => {
             dispatch(setUser(response.data.user))
             localStorage.setItem('token', response.data.token)
         } catch (e) {
-            // alert(e.response.data.message)
             localStorage.removeItem('token')
         }
     }

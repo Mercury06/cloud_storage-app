@@ -10,8 +10,7 @@ const defaultState = {
     files: [],
     currentDir: null,
     popupDisplay: 'none',
-    dirStack: [],
-    view: 'list'
+    dirStack: []
 }
 
 export default function fileReducer(state = defaultState, action) {

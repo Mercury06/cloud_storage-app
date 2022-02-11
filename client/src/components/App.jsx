@@ -36,7 +36,8 @@ function App() {
           :
           <Routes>
             <Route path="/disk" element={<Disk />} />
-            <Route path="/login" element={<Navigate to="/disk" replace />} />              
+            <Route path="/login" element={<Navigate to="/disk" replace />} />
+            <Route path="/" element={<Navigate to="/disk" replace />} />               
           </Routes> }  
         </div>
 
