@@ -9,6 +9,8 @@ import { auth } from "./../actions/users"
 import { useStore } from 'react-redux'
 import Disk from "./disk/Disk";
 
+
+
 function App() {
 
   const isAuth = useSelector( state => state.user.isAuth )
@@ -30,7 +32,7 @@ function App() {
           <Routes>
             <Route path="/registration" element={<Registration />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/" element={<Login />} />         
+            <Route path="/" element={<Login />} />      
 
           </Routes> 
           :

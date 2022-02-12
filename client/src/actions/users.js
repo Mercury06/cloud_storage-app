@@ -1,21 +1,17 @@
 import axios from 'axios';
 import {setUser} from "../reducers/userReducer";
 
+
 export const registration = async ({...form}) => {
-  
+   
     try {        
         const response = await axios.post("http://localhost:8000/api/auth/reg", { ...form})
-        const data = await response.json()
-
-        if (!response.ok) {
-            throw new Error (data.message || "Somthing wrong...")
-        } else {        
-        
-        alert(response.data.message) }
-        return data        
+        console.log(response.data.message)
+      
     } catch (e) {
-        alert(e.response.data.message)
-    }
+        console.log(e.response.data.message)
+     }
+  
 }
 
 export const login = ({...form}) => {
