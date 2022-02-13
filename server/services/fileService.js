@@ -7,8 +7,8 @@ const fPath = config.fPath;
 class FileService {
     // функция кот. созд папки, в аргументы принимает модель объекта файла добавляемого в БД
     // для удобства возвр. в виде promise
-    createDir(File) {
-        const filePath = `${fPath}\\${File.user}\\${File.path}`
+    createDir(req, File) {
+        const filePath = this.getPath(req, file)
         return new Promise(((resolve, reject) => {
             try {
                 if (!fs.existsSync(filePath)) {
@@ -23,8 +23,8 @@ class FileService {
         }))
     }
 
-    deleteFile(file) {
-        const path = this.getPath(file)
+    deleteFile(req, file) {
+        const path = this.getPath(req, file)
         if (file.type === 'dir') {
             fs.rmdirSync(path)
         } else {
@@ -32,8 +32,8 @@ class FileService {
         }
     }
 
-    getPath(file) {
-        return fPath + '\\' + file.user + '\\' + file.path
+    getPath( req, file ) {
+        return req.filePath + '\\' + file.user + '\\' + file.path
     }
 }
 

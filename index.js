@@ -7,17 +7,20 @@ const fileUpload = require('express-fileupload');
 const authRouter = require ("./server/routes/auth.routes.js")
 const fileRouter = require ('./server/routes/file.routes.js')
 const corsMiddleware = require('./server/middleware/cors.middleware')
+const filePathMiddleware = require("././server/middleware/filepath.middleware")
 const logger = require ('./server/middleware/logger.js');
 
 const { db } = require ("./server/models/User.js");
 
 const app = express();
+const path = require ('path')
 
-const PORT = config.serverPort;
+const PORT = process.env.PORT || config.serverPort;
 const dbUrl = config.dbUrl;
 
 app.use(fileUpload({}))
 app.use(corsMiddleware)
+app.use(filePathMiddleware(path.resolve(__dirname, 'files')))
 app.use(express.json({ extended: true }))
 app.use(logger)
 app.use("/api/auth", authRouter)
