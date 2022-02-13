@@ -59,7 +59,7 @@ try {
     const isPassValid = bcrypt.compareSync(password, user.password)
 
     if (!isPassValid) {
-        return res.status(400).json({message: "Password is incorrect"})
+        return res.status(400).json({message: "Password or email is incorrect"})
     }
     const token = jwt.sign({ id: user.id }, secretKey, { expiresIn: "1h" })
     return res.json ({

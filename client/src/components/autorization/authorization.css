@@ -35,6 +35,13 @@
   color: white;
   font-weight: 700; 
   margin-bottom: 24px;
-  cursor: pointer;
-  
+  cursor: pointer;  
+}
+.authorization_response {
+  color: red;
+  border: 1px solid red;
+}
+.result {
+  margin-top: 240px;
+  align-items: center;
 }

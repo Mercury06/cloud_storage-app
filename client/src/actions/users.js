@@ -2,30 +2,32 @@ import axios from 'axios';
 import {setUser} from "../reducers/userReducer";
 
 
-export const registration = async ({...form}) => {
+export const registration = async ({...form}, setResponse) => {
    
     try {        
         const response = await axios.post("http://localhost:8000/api/auth/reg", { ...form})
         console.log(response.data.message)
+        setResponse(response.data.message)
       
     } catch (e) {
-        console.log(e.response.data.message)
-     }
-  
+        setResponse("")
+        alert(e.response.data.message)
+     }  
 }
 
-export const login = ({...form}) => {
+export const login = ({...form}, setResponse) => {
     //debugger;
     return async dispatch => {
   
         try {        
             const response = await axios.post("http://localhost:8000/api/auth/login", { ...form})
-            console.log(response.data)            
+            setResponse(response.data.message)
+                       
             dispatch(setUser(response.data.user))
-            //console.log(response.data.user.email)
             localStorage.setItem('token', response.data.token)
         } catch (e) {
-            alert(e.response.data.message)
+            //alert(e.response.data.message)
+            setResponse(e.response.data.message) 
         }
     }
 }

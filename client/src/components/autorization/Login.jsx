@@ -8,7 +8,8 @@ import "./authorization.css";
 
 const Login = () => {
    
-    const[form, setForm] = useState({ email: "", password: "" })        
+    const[form, setForm] = useState({ email: "", password: "" })
+    const[response, setResponse] = useState('')        
    
     const changeHandler = event => {
         setForm({ ...form, [event.target.name]: event.target.value })
@@ -24,7 +25,8 @@ const Login = () => {
          
                 <input  onChange={changeHandler} type="password" name="password" placeholder="Password" />  <br></br>       
           
-                <button className="authorization__btn" onClick={() => dispatch(login({...form}))}>Sign in</button>
+                <button className="authorization__btn" onClick={() => dispatch(login({...form}, setResponse))}>Sign in</button>
+                { response && <div className="authorization_response">{response}</div>} 
                 <div><NavLink to="/registration">Don`t have an account? Register</NavLink></div>
         </div>
     );

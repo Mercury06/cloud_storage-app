@@ -10,8 +10,8 @@ const RegistrationResult = () => {
         <div className='result'>
         
            <div>
-                <p>Registration completed successfully</p>
-                <p>You can<NavLink to="/registration">Login</NavLink> now</p>
+                <h3>Registration completed successfully!</h3>
+                <center><h3>You can&nbsp;<NavLink to="/login">login</NavLink> now</h3></center>
            </div>
                 
         </div>

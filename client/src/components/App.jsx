@@ -8,6 +8,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { auth } from "./../actions/users"
 import { useStore } from 'react-redux'
 import Disk from "./disk/Disk";
+import RegistrationResult from './autorization/RegistrationResult'
 
 
 
@@ -32,7 +33,8 @@ function App() {
           <Routes>
             <Route path="/registration" element={<Registration />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/" element={<Login />} />      
+            <Route path="/" element={<Login />} />
+            <Route path="/result" element={<RegistrationResult />} />     
 
           </Routes> 
           :
