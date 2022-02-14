@@ -6,8 +6,8 @@ cloud storage application using Mongodb React Express &amp; Node
 
 Stack:
 
-ReactJS
-Redux
+- ReactJS
+- Redux
 Redux Thunk
 Axios
 express.js
