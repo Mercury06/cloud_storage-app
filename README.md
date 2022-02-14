@@ -8,10 +8,11 @@ Stack:
 
 - ReactJS
 - Redux
-Redux Thunk
-Axios
-express.js
-MongoDB
-jsonwebtoken
-express-fileupload
-express-validator
+- Redux 
+- Thunk
+- axios
+- express.js
+- mongoDB
+- jsonwebtoken
+- express-fileupload
+- express-validator
